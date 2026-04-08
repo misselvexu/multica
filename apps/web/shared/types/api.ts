@@ -38,6 +38,16 @@ export interface ListIssuesResponse {
   total: number;
 }
 
+export interface SearchIssueResult extends Issue {
+  match_source: "title" | "description" | "comment";
+  matched_snippet?: string;
+}
+
+export interface SearchIssuesResponse {
+  issues: SearchIssueResult[];
+  total: number;
+}
+
 export interface UpdateMeRequest {
   name?: string;
   avatar_url?: string;
